@@ -56,8 +56,9 @@ CreateThread(function()
                         for i = 0 , 7 do
                         SetVehicleDoorOpen(carro, i, false, true)
                         end
-            
+     
                     end
+                  Wait(japa)
                 end   
             end
 
@@ -78,6 +79,7 @@ CreateThread(function()
                         etapa = 2
                         emp.jpcheckpegarporta()
                     end
+                  Wait(japa)
                 end
             end
             
@@ -98,6 +100,7 @@ CreateThread(function()
                         etapa = 3
                         emp.jpcheckpegarporta()
                     end
+                  Wait(japa)
                 end
             end
 
@@ -118,6 +121,7 @@ CreateThread(function()
                         etapa = 4
                         emp.jpcheckpegarporta()
                     end
+                  Wait(japa)
                 end
             end
             
@@ -138,6 +142,7 @@ CreateThread(function()
                         etapa = 5
                         emp.jpcheckpegarporta()
                     end
+                  Wait(japa)
                 end
             end
 
@@ -158,6 +163,7 @@ CreateThread(function()
                         etapa = 6
                         emp.jpcheckpegarcapo()
                     end
+                  Wait(japa)
                 end
             end
 
@@ -180,6 +186,7 @@ CreateThread(function()
                         TriggerEvent('Notify','sucesso','Você desmanchou o veículo tome seu dinheiro pela carcaça do carro')
                         emp.jpcheckpegarmalas()
                     end
+                  Wait(japa)
                 end
             end
 
