@@ -38,15 +38,15 @@ CreateThread(function()
         local carro = GetVehiclePedIsIn(ped, true)
         local x,y,z = vRP.getPosition(source)
         
-        local japa = 1000
-        
         for k,v in pairs(desmanche) do
+
             local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),v[1],v[2],v[3],true)
-            if dist <= 15 then
-                japa = 5
+
+            if dist > 5 then
+                Wait(1000)
+            else
                 DrawMarker(27, v[1],v[2],v[3]-0.96, 0, 0, 0, 0, 0, 0, 5.0, 5.0, 0.5, 255, 0, 0, 50, false, false, 0, true)
-                if dist <= 5 and etapa == 0 then
-                    japa = 5
+                if dist <= 2 and etapa == 0 then
                     msg('APERTE ~b~E~w~ PARA COMEÇAR O DESMANCHE',4,0.5,0.93,0.50,255,255,255,180) 
                     if IsControlJustPressed(0, 46) and emp.japacheckcarro() and etapa == 0 then
                         etapa = 1
@@ -54,18 +54,17 @@ CreateThread(function()
                         SetEntityHeading(carro, 39.45)
                         FreezeEntityPosition(carro, true)
                         for i = 0 , 7 do
-                        SetVehicleDoorOpen(carro, i, false, true)
+                            SetVehicleDoorOpen(carro, i, false, true)
                         end
-     
-                    end
-                  Wait(japa)
-                end   
+                    end 
+                end
             end
 
             if etapa == 1 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
-                if dist <= 3 then
-                    japa = 5
+                if dist > 3 then
+                    Wait(1000)
+                else
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER A PORTA DO MOTORISTA~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1374.24,-2064.1,52.0-1,true)
@@ -75,18 +74,16 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 0, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 10.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 2
                         emp.jpcheckpegarporta()
                     end
-                  Wait(japa)
                 end
             end
             
             if etapa == 2 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
                 if dist <= 3 then
-                    japa = 5
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER A PORTA DO PASSAGEIRO DA FRENTE~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1376.21,-2062.26, 52.0-1,true)
@@ -96,18 +93,16 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 1, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 2000.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 3
                         emp.jpcheckpegarporta()
                     end
-                  Wait(japa)
                 end
             end
 
             if etapa == 3 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
                 if dist <= 3 then
-                    japa = 5
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER A PORTA ESQUERDA DE TRÁS~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1374.96,-2064.73,52.0-1,true)
@@ -117,18 +112,16 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 2, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 2000.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 4
                         emp.jpcheckpegarporta()
                     end
-                  Wait(japa)
                 end
             end
             
             if etapa == 4 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
                 if dist <= 3 then
-                    japa = 5
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER A PORTA DIREITA DE TRÁS~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1377.17,-2063.18,52.0-1,true)
@@ -138,18 +131,16 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 3, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 2000.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 5
                         emp.jpcheckpegarporta()
                     end
-                  Wait(japa)
                 end
             end
 
             if etapa == 5 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
                 if dist <= 3 then
-                    japa = 5
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER CAPO~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1374.67,-2064.19,52.0-1,true)
@@ -159,18 +150,16 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 4, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 2000.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 6
                         emp.jpcheckpegarcapo()
                     end
-                  Wait(japa)
                 end
             end
 
             if etapa == 6 then
                 local dist = GetDistanceBetweenCoords(GetEntityCoords(ped),texto[1],texto[2],texto[3],true)
                 if dist <= 3 then
-                    japa = 5
                     DrawText3Ds(texto[1],texto[2],texto[3]-1,' ~g~ PRESSIONE~w~ ~h~[E]~h~ ~g~PARA REMOVER O PORTA-MALAS~w~')
                     if IsControlJustPressed(0, 46) then
                         SetEntityCoords(ped,1378.15,-2066.41,52.0-1,true)
@@ -180,22 +169,17 @@ CreateThread(function()
                         vRP._stopAnim()
                         SetVehicleDoorBroken(carro, 5, false)
                         Wait(200)
-                        ClearAreaOfEverything(x, y, z, 2000.0, false, false, false, false)
+                        ClearAreaOfEverything(x, y, z, 20.0, false, false, false, false)
                         etapa = 0
-                        TriggerServerEvent("desmancheVehicles")
                         TriggerEvent('Notify','sucesso','Você desmanchou o veículo tome seu dinheiro pela carcaça do carro')
                         emp.jpcheckpegarmalas()
+                        TriggerServerEvent("desmancheVehicles")
                     end
-                  Wait(japa)
                 end
-            end
-
+            end 
         end
-
-
-        Wait(japa)
+        Wait(1)
     end
-
 end)
 
 
